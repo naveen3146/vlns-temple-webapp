@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -10,10 +10,12 @@ import VideosPage from "./pages/VideosPage";
 import ContactPage from "./pages/ContactPage";
 import PrasadamPage from "./pages/PrasadamPage";
 import DonationPage from "./pages/DonationPage";
+import TempleInfoPage from "./pages/TempleInfoPage";
+import TermsPage from "./pages/TermsPage";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -25,8 +27,11 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/prasadam" element={<PrasadamPage />} />
         <Route path="/donations" element={<DonationPage />} />
+        <Route path="/temple-info" element={<TempleInfoPage />} />
+        <Route path="/terms" element={<TermsPage />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
+
 export default App;
