@@ -2,30 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { getToken } from "../components/loginService";
 
-async function translateToTelugu(text) {
-  const apiKey = "YOUR_GOOGLE_TRANSLATE_API_KEY"; // Replace with your key
-  const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
-  try {
-    const response = await axios.post(url, {
-      q: text,
-      target: "te"
-    });
-    return response.data.data.translations[0].translatedText;
-  } catch (err) {
-    return text; // fallback to original if translation fails
-  }
-}
-
-function translateEventToTelugu(event) {
-  return {
-    title: `🛕 ${event.title} (${event.title})`,
-    date: `📅 తేదీ: ${new Date(event.date).toLocaleDateString('te-IN', { year: 'numeric', month: 'long', day: 'numeric' })}, ${new Date(event.date).toLocaleTimeString('te-IN', { hour: '2-digit', minute: '2-digit' })}`,
-    templeName: `📍 వేదిక: ${event.templeName}`,
-    description: `🪔 కార్యక్రమం: ${event.description}`,
-    contact: `📞 సంప్రదించండి: ${event.contact}`
-  };
-}
-
 const EventCard = ({ event, onEdit, onDelete, isAdmin }) => {
   const [showImageModal, setShowImageModal] = useState(false);
   const validImageUrl =
