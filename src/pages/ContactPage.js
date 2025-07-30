@@ -41,6 +41,18 @@ function ContactPage() {
           Facebook
         </a>
       </div>
+      <div className="my-8">
+        <h3 className="text-xl font-bold mb-2">Temple Location</h3>
+        <iframe
+          title="Temple Location"
+          width="100%"
+          height="350"
+          style={{ border: 0 }}
+          loading="lazy"
+          allowFullScreen
+          src="https://www.google.com/maps?q=Sri+Varaha+Lakshmi+Narasimha+Swamy+Temple,+FJQ2%2BF6C,+Polkampadu,+Andhra+Pradesh+522501,+India&output=embed"
+        ></iframe>
+      </div>
       <hr className="my-6" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
         <div>

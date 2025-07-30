@@ -6,12 +6,13 @@ import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
 import EventsPage from "./pages/EventsPage";
 import GalleryPage from "./pages/GalleryPage";
-import VideosPage from "./pages/VideosPage";
 import ContactPage from "./pages/ContactPage";
-import PrasadamPage from "./pages/PrasadamPage";
 import DonationPage from "./pages/DonationPage";
 import TempleInfoPage from "./pages/TempleInfoPage";
 import TermsPage from "./pages/TermsPage";
+import "./services/axiosConfig";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -23,12 +24,12 @@ function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="/videos" element={<VideosPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/prasadam" element={<PrasadamPage />} />
         <Route path="/donations" element={<DonationPage />} />
         <Route path="/temple-info" element={<TempleInfoPage />} />
         <Route path="/terms" element={<TermsPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );

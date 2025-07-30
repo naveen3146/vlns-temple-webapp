@@ -19,8 +19,6 @@ function Navbar() {
         <Link to="/services">Services</Link>
         <Link to="/events">Events</Link>
         <Link to="/gallery">Gallery</Link>
-        <Link to="/videos">Videos</Link>
-        <Link to="/prasadam">Prasadam</Link>
         <Link to="/donations">Donations</Link>
         <Link to="/contact">Contact Us</Link>
       </div>
