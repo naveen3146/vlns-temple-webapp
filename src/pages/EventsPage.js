@@ -106,7 +106,7 @@ export default function EventsPage({ eventBanner }) {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:8085/events");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/events`)
       setEvents(response.data);
     } catch (err) {
       // handle error
@@ -144,7 +144,7 @@ export default function EventsPage({ eventBanner }) {
       return;
     }
     if (window.confirm("Are you sure you want to delete this event?")) {
-      await axios.delete(`http://localhost:8085/events/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/events/${id}`, {
         headers: { "Authorization": `Bearer ${getToken()}` }
       });
       fetchEvents();
@@ -174,7 +174,7 @@ export default function EventsPage({ eventBanner }) {
 
     try {
       if (editingEvent) {
-        await axios.put(`http://localhost:8085/events/${editingEvent.eventId}`, form, {
+        await axios.put(`${process.env.REACT_APP_API_URL}/events/${editingEvent.eventId}`, form, {
           headers: {
             "Content-Type": "multipart/form-data",
             "Authorization": `Bearer ${getToken()}`,
@@ -182,7 +182,7 @@ export default function EventsPage({ eventBanner }) {
         });
         setEditingEvent(null);
       } else {
-        await axios.post("http://localhost:8085/events", form, {
+        await axios.post(`${process.env.REACT_APP_API_URL}/events`, form, {
           headers: {
             "Content-Type": "multipart/form-data",
             "Authorization": `Bearer ${getToken()}`,

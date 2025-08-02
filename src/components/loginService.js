@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8085/auth";
+// Use environment variable for API URL
+const API_URL = `${process.env.REACT_APP_API_URL}/auth`;
 
 export const login = async (username, password) => {
   const response = await axios.post(`${API_URL}/login`, { username, password });
-  // Fix: access the nested token property
   if (response.data.token && response.data.token.token) {
-    localStorage.setItem("jwt", response.data.token.token); // <-- Store as string
+    localStorage.setItem("jwt", response.data.token.token);
   }
   return response.data;
 };

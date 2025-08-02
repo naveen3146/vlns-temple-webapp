@@ -17,7 +17,7 @@ export default function GalleryPage() {
   // Fetch images from backend
   const fetchImages = async () => {
     try {
-      const response = await axios.get("http://localhost:8085/temple/photos");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/temple/photos`);
       // Expecting response: [{ url, fileName, ... }]
       setImages(response.data);
     } catch (err) {
@@ -28,7 +28,7 @@ export default function GalleryPage() {
   // Fetch videos from backend
   const fetchVideos = async () => {
     try {
-      const response = await axios.get("http://localhost:8085/video");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/video`);
       // Expecting response: [{ id, title, description, s3Url, fileName }]
       setVideos(response.data);
     } catch (err) {
@@ -39,7 +39,7 @@ export default function GalleryPage() {
   // Fetch event banner (new function)
   const fetchEventBanner = async () => {
     try {
-      const response = await axios.get("http://localhost:8085/event/banner");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/event/banner`);
       // Expecting response: { url, title, description }
       setEventBanner(response.data);
     } catch (err) {
@@ -80,7 +80,7 @@ export default function GalleryPage() {
       formData.append("files", files[i]);
     }
     try {
-      await axios.post("http://localhost:8085/temple/photos", formData, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/temple/photos`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           "Authorization": `Bearer ${getToken()}`,
@@ -97,7 +97,7 @@ export default function GalleryPage() {
   // Delete handler for images
   const handleDeleteImage = async (fileName) => {
     try {
-      await axios.delete(`http://localhost:8085/temple/photos/${fileName}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/temple/photos/${fileName}`, {
         headers: { "Authorization": `Bearer ${getToken()}` }
       });
       fetchImages();
@@ -109,7 +109,7 @@ export default function GalleryPage() {
   // Delete handler for videos
   const handleDeleteVideo = async (id) => {
     try {
-      await axios.delete(`http://localhost:8085/video/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/video/${id}`, {
         headers: { "Authorization": `Bearer ${getToken()}` }
       });
       fetchVideos();
@@ -235,7 +235,7 @@ export default function GalleryPage() {
                 formData.append("title", e.target.title.value);
                 formData.append("description", e.target.description.value);
                 try {
-                  await axios.post("http://localhost:8085/video", formData, {
+                  await axios.post(`${process.env.REACT_APP_API_URL}/video`, formData, {
                     headers: {
                       "Content-Type": "multipart/form-data",
                       "Authorization": `Bearer ${getToken()}`,
