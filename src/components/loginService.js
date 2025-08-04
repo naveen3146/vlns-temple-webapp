@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Use environment variable for API URL
-const API_URL = `https://my-backend-alb-1613799762.ap-south-1.elb.amazonaws.com/auth`;
+const API_URL = `https://api.sribhuvarahalakshminarasimha.in/auth`;
 
 // Log the API URL to verify which endpoint is being used
 console.log("Auth API URL:", API_URL);
