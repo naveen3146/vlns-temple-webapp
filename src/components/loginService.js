@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Use environment variable for API URL
-const API_URL = `https://api.sribhuvarahalakshminarasimha.in/api/auth`;
+const API_URL = `${process.env.REACT_APP_API_URL}/auth`;
 
 // Log the API URL to verify which endpoint is being used
 console.log("Auth API URL:", API_URL);
